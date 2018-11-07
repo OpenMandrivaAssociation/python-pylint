@@ -12,6 +12,7 @@ Source0:	https://github.com/PyCQA/pylint/archive/pylint-%{version}.tar.gz
 BuildArch:	noarch 
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python3)
+BuildRequires:  python3dist(pytest-runner)
  
 %description 
 A Python source code analyzer which looks for programming errors, helps
