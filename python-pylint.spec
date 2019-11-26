@@ -2,8 +2,8 @@
   
 Summary:	Python source code analyzer
 Name:		python-pylint
-Version:	1.8.2
-Release:	2
+Version:	2.4.4
+Release:	1
 Group:		Development/Python
 License:	Python
 Url:		http://pylint.org/
