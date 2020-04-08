@@ -3,7 +3,7 @@
 Summary:	Python source code analyzer
 Name:		python-pylint
 Version:	2.4.4
-Release:	2
+Release:	4
 Group:		Development/Python
 License:	Python
 Url:		http://pylint.org/
