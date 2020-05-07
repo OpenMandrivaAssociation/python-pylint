@@ -8,7 +8,6 @@ Group:		Development/Python
 License:	Python
 Url:		http://pylint.org/
 # Also: https://pypi.python.org/pypi/pylint
-# Package latest git 2.5.0 from 03.04.2020 to fix conflicting with other packages
 Source0:	https://github.com/PyCQA/pylint/archive/pylint-pylint-%{version}.tar.gz
 BuildArch:	noarch 
 BuildRequires:	python-setuptools
