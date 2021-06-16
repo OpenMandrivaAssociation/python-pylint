@@ -19,7 +19,7 @@ A Python source code analyzer which looks for programming errors, helps
 enforcing a coding standard and sniffs for some code smells.
 
 %prep
-%setup -qn %{module}-%{module}-%{version}
+%setup -qn %{module}-%{version}
   
 %build
 %__python setup.py build
