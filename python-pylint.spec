@@ -13,6 +13,7 @@ BuildArch:	noarch
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
 BuildRequires:  python3dist(pytest-runner)
+BuildRequires:  python3dist(wheel)
  
 %description 
 A Python source code analyzer which looks for programming errors, helps
