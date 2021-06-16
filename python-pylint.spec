@@ -8,7 +8,7 @@ Group:		Development/Python
 License:	Python
 Url:		http://pylint.org/
 # Also: https://pypi.python.org/pypi/pylint
-Source0:	https://github.com/PyCQA/pylint/archive/pylint-pylint-%{version}.tar.gz
+Source0:	https://github.com/PyCQA/pylint/archive/pylint-%{version}.tar.gz
 BuildArch:	noarch 
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
