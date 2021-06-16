@@ -12,6 +12,7 @@ Source0:	https://github.com/PyCQA/pylint/archive/pylint-pylint-%{version}.tar.gz
 BuildArch:	noarch 
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
+BuildRequires:  python3dist(pip)
 BuildRequires:  python3dist(pytest-runner)
 BuildRequires:  python3dist(wheel)
  
