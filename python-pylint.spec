@@ -9,6 +9,7 @@ License:	Python
 Url:		http://pylint.org/
 # Also: https://pypi.python.org/pypi/pylint
 Source0:	https://github.com/PyCQA/pylint/archive/pylint-%{version}.tar.gz
+Patch0:   pylint-2.6.0-allow-to-work-with-astroid-2.5.8.patch
 BuildArch:	noarch 
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
@@ -22,6 +23,7 @@ enforcing a coding standard and sniffs for some code smells.
 
 %prep
 %setup -qn %{module}-%{version}
+%autopatch -p1
   
 %build
 %__python setup.py build
