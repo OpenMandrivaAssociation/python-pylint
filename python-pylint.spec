@@ -3,12 +3,14 @@
 Summary:	Python source code analyzer
 Name:		python-pylint
 Version:	2.9.6
-Release:	1
+Release:	2
 Group:		Development/Python
 License:	Python
 Url:		http://pylint.org/
 # Also: https://pypi.python.org/pypi/pylint
 Source0:	https://github.com/PyCQA/pylint/archive/pylint-%{version}.tar.gz
+# Not a elegant way but should works until we import few new deps and upgrade rest to match pylint requires
+Patch0:   pylint-2.6.0-allow-to-work-with-astroid-2.5.8.patch
 BuildArch:	noarch 
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
