@@ -2,37 +2,34 @@
   
 Summary:	Python source code analyzer
 Name:		python-pylint
-Version:	2.9.6
-Release:	2
+Version:	2.15.4
+Release:	1
 Group:		Development/Python
 License:	Python
 Url:		http://pylint.org/
 # Also: https://pypi.python.org/pypi/pylint
-Source0:	https://github.com/PyCQA/pylint/archive/pylint-%{version}.tar.gz
-# Not a elegant way but should works until we import few new deps and upgrade rest to match pylint requires
-Patch0:   pylint-2.6.0-allow-to-work-with-astroid-2.5.8.patch
+Source0:	https://files.pythonhosted.org/packages/source/p/pylint/pylint-%{version}.tar.gz
 BuildArch:	noarch 
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
-BuildRequires:  python3dist(pip)
-BuildRequires:  python3dist(pytest-runner)
-BuildRequires:  python3dist(wheel)
+BuildRequires:  python%{pyver}dist(pip)
+BuildRequires:  python%{pyver}dist(pytest-runner)
+BuildRequires:  python%{pyver}dist(wheel)
  
 %description 
 A Python source code analyzer which looks for programming errors, helps
 enforcing a coding standard and sniffs for some code smells.
 
 %prep
-%setup -qn %{module}-%{version}
-%autopatch -p1
+%autosetup -p1 -n %{module}-%{version}
   
 %build
-%__python setup.py build
+%py_build
 
 %install 
-%__python setup.py install --root=%{buildroot} --record=FILE_LIST
+%py_install
 
 %files
 %{_bindir}/*
 %{py_sitedir}/pylint
-%{py_sitedir}/pylint*.egg-info
+%{py_sitedir}/pylint*.dist-info
