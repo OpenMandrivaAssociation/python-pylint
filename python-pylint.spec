@@ -6,7 +6,7 @@ Version:	3.2.7
 Release:	1
 Group:		Development/Python
 License:	Python
-Url:		http://pylint.org/
+Url:		https://pylint.org/
 # Also: https://pypi.python.org/pypi/pylint
 Source0:	https://files.pythonhosted.org/packages/source/p/pylint/pylint-%{version}.tar.gz
 BuildArch:	noarch 
