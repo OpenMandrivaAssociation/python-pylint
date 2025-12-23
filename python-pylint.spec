@@ -1,35 +1,34 @@
 %define module	pylint
-  
-Summary:	Python source code analyzer
+
 Name:		python-pylint
-Version:	3.3.2
-Release:	2
+Version:	4.0.4
+Release:	1
+Summary:	Python source code analyzer
 Group:		Development/Python
-License:	Python
-Url:		https://pylint.org/
-# Also: https://pypi.python.org/pypi/pylint
-Source0:	https://files.pythonhosted.org/packages/source/p/pylint/pylint-%{version}.tar.gz
-BuildArch:	noarch 
-BuildRequires:	python-setuptools
+License:	GPL-2.0-or-later
+URL:		https://pylint.org/
+# Also: https://pypi.org/project/pylint  https://github.com/pylint-dev/pylint
+Source0:	https://files.pythonhosted.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
+BuildSystem:	python
+BuildArch:		noarch
 BuildRequires:	pkgconfig(python)
 BuildRequires:  python%{pyver}dist(pip)
-BuildRequires:  python%{pyver}dist(pytest-runner)
+BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:  python%{pyver}dist(wheel)
- 
-%description 
+
+%description
 A Python source code analyzer which looks for programming errors, helps
 enforcing a coding standard and sniffs for some code smells.
 
 %prep
-%autosetup -p1 -n %{module}-%{version}
-  
-%build
-%py_build
-
-%install 
-%py_install
+%autosetup -n %{module}-%{version} -p1
+# Remove bundled egg-info
+rm -rf %{module}.egg-info
 
 %files
+%doc README.rst
+%license LICENSE
 %{_bindir}/*
-%{py_sitedir}/pylint
-%{py_sitedir}/pylint*.dist-info
+%{python_sitelib}/%{module}
+%{python_sitelib}/%{module}-%{version}.dist-info
