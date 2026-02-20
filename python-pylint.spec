@@ -25,6 +25,10 @@ enforcing a coding standard and sniffs for some code smells.
 %autosetup -n %{module}-%{version} -p1
 # Remove bundled egg-info
 rm -rf %{module}.egg-info
+# Fix/relase upper version bounds, astroid is already released as 4.1.n, pylint
+# didnt update their version pins in time for the release:
+# https://github.com/pylint-dev/pylint/pull/10843
+sed -i 's/astroid>=4.0.2,<=4.1.dev0/astroid>=4.1,<=4.2.dev0/g' pyproject.toml
 
 %files
 %doc README.rst
