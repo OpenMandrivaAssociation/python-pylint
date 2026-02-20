@@ -1,7 +1,7 @@
 %define module	pylint
 
 Name:		python-pylint
-Version:	4.0.4
+Version:	4.0.5
 Release:	1
 Summary:	Python source code analyzer
 Group:		Development/Python
