@@ -2,7 +2,7 @@
 
 Name:		python-pylint
 Version:	4.0.5
-Release:	1
+Release:	2
 Summary:	Python source code analyzer
 Group:		Development/Python
 License:	GPL-2.0-or-later
@@ -13,9 +13,10 @@ Source0:	https://files.pythonhosted.org/packages/source/p/%{module}/%{module}-%{
 BuildSystem:	python
 BuildArch:		noarch
 BuildRequires:	pkgconfig(python)
-BuildRequires:  python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
-BuildRequires:  python%{pyver}dist(wheel)
+BuildRequires:	python%{pyver}dist(wheel)
+BuildRequires:	tomcli
 
 %description
 A Python source code analyzer which looks for programming errors, helps
@@ -28,7 +29,8 @@ rm -rf %{module}.egg-info
 # Fix/relase upper version bounds, astroid is already released as 4.1.n, pylint
 # didnt update their version pins in time for the release:
 # https://github.com/pylint-dev/pylint/pull/10843
-sed -i 's/astroid>=4.0.2,<=4.1.dev0/astroid>=4.1,<=4.2.dev0/g' pyproject.toml
+tomcli set pyproject.toml arrays replace --type fnmatch \
+    'project.dependencies'  '*astroid*' 'astroid>=4.0.2'
 
 %files
 %doc README.rst
