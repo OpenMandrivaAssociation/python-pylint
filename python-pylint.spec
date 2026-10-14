@@ -1,7 +1,7 @@
 %define module	pylint
 
 Name:		python-pylint
-Version:	4.0.9
+Version:	4.1.3
 Release:	1
 Summary:	Python source code analyzer
 Group:		Development/Python
@@ -12,11 +12,10 @@ Source0:	https://files.pythonhosted.org/packages/source/p/%{module}/%{module}-%{
 
 BuildSystem:	python
 BuildArch:		noarch
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(wheel)
-BuildRequires:	tomcli
 
 %description
 A Python source code analyzer which looks for programming errors, helps
@@ -26,11 +25,6 @@ enforcing a coding standard and sniffs for some code smells.
 %autosetup -n %{module}-%{version} -p1
 # Remove bundled egg-info
 rm -rf %{module}.egg-info
-# Fix/relase upper version bounds, astroid is already released as 4.1.n, pylint
-# didnt update their version pins in time for the release:
-# https://github.com/pylint-dev/pylint/pull/10843
-tomcli set pyproject.toml arrays replace --type fnmatch \
-    'project.dependencies'  '*astroid*' 'astroid>=4.0.2'
 
 %files
 %doc README.rst
