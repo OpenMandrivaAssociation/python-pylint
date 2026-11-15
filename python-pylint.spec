@@ -2,11 +2,15 @@
 
 Name:		python-pylint
 Version:	4.1.4
-Release:	1
+Release:	2
 Summary:	Python source code analyzer
 Group:		Development/Python
 License:	GPL-2.0-or-later
 URL:		https://pylint.org/
+# The pylint package is this same project, last built for Python 3.11.
+# It owns the same /usr/bin/pylint scripts.
+Obsoletes:	pylint < 4
+Provides:	pylint = %{EVRD}
 # Also: https://pypi.org/project/pylint  https://github.com/pylint-dev/pylint
 Source0:	https://files.pythonhosted.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
